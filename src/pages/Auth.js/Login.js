@@ -25,7 +25,7 @@ const Login = () => {
     console.log(email, password);
 
     try {
-      const res = await axios.post('/api/v1/auth/Login',
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Login`,
         // {email: this.state.email, password: password} 
         { email, password }
       );
