@@ -8,7 +8,7 @@ const SearchInput = () => {
     const navigate = useNavigate();
     const handleSubmit= async ()=>{
         try{
-            const {data} =await axios.get(`/api/v1/product/search/${values.keyword}`)
+            const {data} =await axios.get(`${process.env.REACT_APP_API}/api/v1/product/search/${values.keyword}`)
             setValues({...values, results:data});
             navigate("/search");
         }
