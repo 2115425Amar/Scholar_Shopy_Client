@@ -69,44 +69,6 @@ const Login = () => {
 
   return (
     <Layout title="Register">
-      {/* <div className="register">
-        <h1>Login</h1>
-
-        <form onSubmit={handleSubmit}>
-
-          <div className="mb-3">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your email"
-              required
-            />
-          </div>
-
-          <div className="mb-3">
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
-              id="exampleInputPassword1"
-              placeholder="Enter Your Password"
-              required
-            />
-          </div>
-
-          <div className="d-grid gap-2">
-            <button className="btn btn-secondary bg-primary" type="button" onClick={() => { navigate('/forgot-password') }}>
-              Forgot Password
-            </button>
-            <button className="btn btn-secondary bg-primary" type="submit">Login</button>
-          </div>
-        </form>
-
-      </div> */}
 
       <section className="vh-100" style={{     backgroundColor: "rgb(238, 238, 238)" }}>
         <div className="container py-5 h-100">
@@ -114,8 +76,8 @@ const Login = () => {
             <div className="col col-xl-10">
               <div className="card" style={{ borderRadius: "1rem" }}>
                 <div className="row g-0">
-                  <div className="col-md-6 col-lg-5 d-none d-md-block">
-                   
+
+                  <div className="col-md-6 col-lg-5 d-none d-md-block mt-5">
                     <Lottie animationData={ContactAnimation} />
 
                   </div>

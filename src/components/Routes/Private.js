@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function PrivateRoute(){
     const[ok,setOk]=useState(false);
     //,setAuth
-    const[auth]=useAuth();
+    const[auth, setAuth]=useAuth();
 
     useEffect(()=>{
         const authCheck = async()=>{

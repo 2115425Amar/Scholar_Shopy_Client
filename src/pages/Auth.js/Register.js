@@ -24,7 +24,7 @@ const Register = () => {
     try {
       // Construct the API endpoint URL
         // console.log(`${process.env.REACT_APP_API}/api/v1/auth/Register`);
-        console.log("hellio ji");
+        // console.log("hellio ji");
 
       // Make the POST request
       const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Register`, {
@@ -54,89 +54,6 @@ const Register = () => {
   // console.log(process.env.REACT_APP_API);
 
   return (
-    // <Layout title="Register">
-    //   <div className="register">
-
-    //     <h1>Register </h1>
-
-    //     <form onSubmit={handleSubmit}>
-
-    //       <div className="mb-3">
-    //         <input
-    //           type="text"
-    //           value={name}
-    //           onChange={(e) => setName(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputname"
-    //           placeholder="Enter Your Name"
-    //           required
-    //         />
-    //       </div>
-    //       <div className="mb-3">
-    //         <input
-    //           type="email"
-    //           value={email}
-    //           onChange={(e) => setEmail(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputEmail"
-    //           placeholder="Enter Your email"
-    //           required
-    //         />
-    //       </div>
-
-    //       <div className="mb-3">
-    //         <input
-    //           type="password"
-    //           value={password}
-    //           onChange={(e) => setPassword(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputPassword1"
-    //           placeholder="Enter Your Password"
-    //           required
-    //         />
-    //       </div>
-
-    //       <div className="mb-3">
-    //         <input
-    //           type="text"
-    //           value={phone}
-    //           onChange={(e) => setPhone(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputText"
-    //           placeholder="Enter Your phone"
-    //           required
-    //         />
-    //       </div>
-
-    //       <div className="mb-3">
-    //         <input
-    //           type="text"
-    //           value={address}
-    //           onChange={(e) => setAddress(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputAddress"
-    //           placeholder="Enter Your  Address"
-    //           required
-    //         />
-    //       </div>
-
-    //       <div className="mb-3">
-    //         <input
-    //           type="text"
-    //           value={answer}
-    //           onChange={(e) => setAnswer(e.target.value)}
-    //           className="form-control"
-    //           id="exampleInputanswer"
-    //           placeholder="Your Best Friend Name?"
-    //           required
-    //         />
-    //       </div>
-
-    //       <div className="d-grid gap-2">
-    //         <button className="btn btn-secondary bg-primary" type="submit">Submit</button>
-    //       </div>
-    //     </form>
-    //   </div>
 
     <Layout>
       <section className="vh-80" style={{ backgroundColor: "#eee" }}>
@@ -236,7 +153,7 @@ const Register = () => {
                           </div>
                         </div>
 
-                        <div className="form-check d-flex justify-content-center mb-5">
+                        <div className="form-check d-flex justify-content-center mb-3">
                           <input
                             className="form-check-input me-2"
                             type="checkbox"
@@ -251,7 +168,7 @@ const Register = () => {
                             <a href="#!">Terms of service</a>
                           </label>
                         </div>
-                        <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <div className="d-flex justify-content-center mx-4  mb-lg-4">
                           <button
                             className="btn btn-primary btn-lg"
                             type="submit"
@@ -261,12 +178,7 @@ const Register = () => {
                         </div>
                       </form>
                     </div>
-                    <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      {/* <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        className="img-fluid"
-                        alt="Sample"
-                      /> */}
+                    <div className="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
                       <Lottie animationData={ContactAnimation} />
                     </div>
                   </div>
