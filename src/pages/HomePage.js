@@ -6,7 +6,8 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
-
+// import "../styles/HomePage.css"
+// import { px } from "framer-motion";
 const HomePage = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -133,7 +134,7 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column ">
             <button
               className="btn btn-danger"
               onClick={() => window.location.reload()}
@@ -142,17 +143,22 @@ const HomePage = () => {
             </button>
           </div>
         </div>
+
         {/* ----------------------------------------------------------------- */}
         <div className="col-md-10">
           <h1 className="text-center">All Products</h1>
+{/* ---------------------------------------------------------------------------------------- */}
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }}>
+              <div className="card m-2" key={p._id} style={{ width: "18rem" }}>
+                <div>
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
+                  className="card-img-top "
                   alt={p.name}
+                  width="200" height="250"
                 />
+                </div>
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">
@@ -180,8 +186,39 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+{/* ----------------------------------------------------------------------- */}
+{/* <div className="d-flex flex-wrap">
+{products?.map((p) => (
+  <div className="product-card">
+
+    <div className="product-card__image ">
+      <img   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
+    </div>
+
+    <div className="product-card__info">
+      <h2 className="product-card__title">{p.name}</h2>
+      <p className="product-card__description"> {p.description.substring(0, 30)}...</p>
+      <div className="product-card__price-row">
+        <span className="product-card__price">₹ {p.price}</span>
+        <button className="product-card__btn"
+        onClick={() => {
+          setCart([...cart, p]);
+          localStorage.setItem("cart", JSON.stringify([...cart, p])
+          );
+          toast.success("Item Added to cart");
+        }}
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+))}
+</div> */}
+{/* --------------------------------------------------------------------------------- */}
 
           {/* ----------------------------------------------- */}
+
           <div className="m-2 p-3">
             {products && products.length < total && (
               <button

@@ -130,7 +130,7 @@ const Header = () => {
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart">
-                  <IoCartOutline  />
+                  <IoCartOutline  size={36}/>
                   </NavLink>
                 </Badge>
               </li>

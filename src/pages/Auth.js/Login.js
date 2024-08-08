@@ -70,8 +70,8 @@ const Login = () => {
   return (
     <Layout title="Register">
 
-      <section className="vh-100" style={{     backgroundColor: "rgb(238, 238, 238)" }}>
-        <div className="container py-5 h-100">
+      <section style={{backgroundColor: "rgb(238, 238, 238)" }}>
+        <div className="container py-3 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col col-xl-10">
               <div className="card" style={{ borderRadius: "1rem" }}>
@@ -127,11 +127,11 @@ const Login = () => {
                           <button className="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
 
-                        <button className="btn btn-secondary bg-primary" type="button" onClick={() => { navigate('/forgot-password') }}>
+                        <button className="btn btn-secondary bg-primary mb-2" type="button" onClick={() => { navigate('/forgot-password') }}>
                           Forgot password?
                         </button>
 
-                        <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
+                        <p className="mb-4 pb-lg-2" style={{ color: "#393f81" }}>
                           Don't have an account?{" "}
                           <NavLink to="/register" style={{ color: "#393f81" }} >Register</NavLink>
                           {/* <a href="#!" style={{ color: "#393f81" }}>Register here</a> */}

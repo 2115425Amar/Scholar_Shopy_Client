@@ -22,10 +22,6 @@ const Register = () => {
     console.log(name, email, password, phone, address, answer);
 
     try {
-      // Construct the API endpoint URL
-        // console.log(`${process.env.REACT_APP_API}/api/v1/auth/Register`);
-        // console.log("hellio ji");
-
       // Make the POST request
       const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Register`, {
         name,
@@ -51,17 +47,15 @@ const Register = () => {
     }
   };
 
-  // console.log(process.env.REACT_APP_API);
-
   return (
 
     <Layout>
-      <section className="vh-80" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-10">
               <div className="card text-black" style={{ borderRadius: 25 }}>
-                <div className="card-body p-md-5">
+                <div className="card-body p-md-6">
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4">
@@ -178,7 +172,7 @@ const Register = () => {
                         </div>
                       </form>
                     </div>
-                    <div className="col-md-10 col-lg-6 col-xl-6 d-flex align-items-center order-1 order-lg-2">
+                    <div className="col-md-10  col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
                       <Lottie animationData={ContactAnimation} />
                     </div>
                   </div>

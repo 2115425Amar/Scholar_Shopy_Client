@@ -62,7 +62,7 @@ const CartPage = () => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-md-6">
             {cart?.map((p) => (
               <div className="row mb-2 p-3 card flex-row">
                 <div className="col-md-4">
@@ -70,7 +70,7 @@ const CartPage = () => {
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
-                    width="100px"
+                    width="50px"
                     height={"100px"}
                   />
                 </div>
