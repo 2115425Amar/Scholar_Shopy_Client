@@ -24,16 +24,9 @@ const ForgotPassword = () => {
 
       if (res && res.data.success) {
         toast.success(res.data.message);
-
-        if (res && res.data.success) {
-          toast.success(res.data.message);
-
-          navigate("/login");
-        } else {
-          toast.error(res.data.message);
-        }
         navigate("/");
-      } else {
+      }
+       else {
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -66,7 +59,7 @@ const ForgotPassword = () => {
               onChange={(e) => setNewPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Enter Your Password"
+              placeholder="Enter New Password"
               required
             />
           </div>

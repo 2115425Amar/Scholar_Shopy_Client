@@ -10,12 +10,13 @@ const Spinner = ({path="login"}) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((prevValue) => --prevValue);
-    }, 750);
-    count===0 &&  
-    navigate(`/${path}`, { 
+    }, 3000);
+
+    count===0 &&  navigate(`/${path}`, { 
       state: location.pathname, 
     });
     return () => clearInterval(interval);
+
   }, [count, navigate, location, path]);
 
   return (
@@ -97,7 +98,7 @@ const Spinner = ({path="login"}) => {
           }
         `}
       </style>
-
+      <h1 className='flex flex-column'>redirecting to you in {count} second</h1>
       <motion.div
         className="box"
         animate={{

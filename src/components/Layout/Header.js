@@ -12,13 +12,14 @@ const Header = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
+
   const handleLogout = () => {
     setAuth({
       ...auth,
       user: null,
       token: "",
     });
-    localStorage.removeItem("auth");
+    localStorage.removeItem("auth");   //delete from local storage
     toast.success("Logout Successfully");
   };
 
@@ -26,7 +27,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
-          {/* <button
+          <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -36,7 +37,7 @@ const Header = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon" />
-          </button> */}
+          </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               Schola₹Shopy
@@ -81,17 +82,13 @@ const Header = () => {
               {!auth?.user ? (     //agar login nhi h
                 <>
                   <li className="nav-item">
-                    <NavLink to="/register" className="nav-link">
-                      Register
-                    </NavLink>
+                    <NavLink to="/register" className="nav-link">Register</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink to="/login" className="nav-link">
-                      Login
-                    </NavLink>
+                    <NavLink to="/login" className="nav-link">Login</NavLink>
                   </li>
                 </>
-              ) : (                //if already login
+              ) : (                // else if already login
                 <>
                   <li className="nav-item dropdown">
                     <NavLink
@@ -116,19 +113,13 @@ const Header = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink
-                          onClick={handleLogout}
-                          to="/login"
-                          className="dropdown-item"
-                        >
-                          Logout
-                        </NavLink>
+                        <NavLink onClick={handleLogout} to="/login" className="dropdown-item">Logout</NavLink>
                       </li>
                     </ul>
                   </li>
                 </>
               )}
-{/*------------------- ---------------------------------- */}
+{/*-------------------------------------------------------------------------- */}
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart">

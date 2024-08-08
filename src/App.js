@@ -22,9 +22,6 @@ import ProductDetails from './pages/ProductDetails';
 import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
 import CartPage from './pages/CartPage';
-// import Chatbot from './pages/Chatbot';
-// import Search from './pages/search';
-//  import Search from './pages/Search.js';
 
 function App() {
   return (
@@ -37,7 +34,6 @@ function App() {
       <Route path='/cart' element={<CartPage/>}/>
 
       <Route path='category/:slug' element={<CategoryProduct/>}/>
-      {/* <Route path='/Search' element={<Search/>}/> */}
       <Route path='/about' element={<About/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/Policy' element={<Policy/>}/>
@@ -47,7 +43,9 @@ function App() {
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
       {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
 
-      <Route path='/dashboard' element={<PrivateRoute/>}>
+
+{/* //pehle protected route check hoga that is login h ya nhithen entry milegi */}
+      <Route path='/dashboard' element={<PrivateRoute/>}>  
         <Route path="user" element={<Dashboard/>}/>
         <Route path="user/orders" element={<Orders/>} />
         <Route path="user/profile" element={<Profile />} />
@@ -61,7 +59,6 @@ function App() {
         <Route path="admin/users" element={<Users/>} />
       </Route> 
 
-        {/* <Route path="/chatbot" element={<Chatbot />} /> */}
 
     </Routes>
     </>
