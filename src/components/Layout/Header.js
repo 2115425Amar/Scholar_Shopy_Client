@@ -26,7 +26,7 @@ const Header = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary ">
         <div className="container-fluid">
-          <button
+          {/* <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -36,7 +36,7 @@ const Header = () => {
             aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon" />
-          </button>
+          </button> */}
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
               Schola₹Shopy
@@ -45,7 +45,7 @@ const Header = () => {
               <SearchInput />
 
               <li className="nav-item">
-                <NavLink to="/" className="nav-link ">
+                <NavLink to="/home" className="nav-link ">
                   Home
                 </NavLink>
               </li>
@@ -77,8 +77,8 @@ const Header = () => {
                   ))}
                 </ul>
               </li>
-
-              {!auth?.user ? (
+{/* -------------------------Register/Login------------------------------- */}
+              {!auth?.user ? (     //agar login nhi h
                 <>
                   <li className="nav-item">
                     <NavLink to="/register" className="nav-link">
@@ -91,7 +91,7 @@ const Header = () => {
                     </NavLink>
                   </li>
                 </>
-              ) : (
+              ) : (                //if already login
                 <>
                   <li className="nav-item dropdown">
                     <NavLink
@@ -103,11 +103,12 @@ const Header = () => {
                     >
                       {auth?.user?.name}
                     </NavLink>
+
                     <ul className="dropdown-menu">
                       <li>
                         <NavLink
                           to={`/dashboard${
-                            auth?.user?.role === 1 ? "/admin" : ""
+                            auth?.user?.role === 1 ? "/admin" : "/user"
                           }`}
                           className="dropdown-item"
                         >
@@ -127,6 +128,7 @@ const Header = () => {
                   </li>
                 </>
               )}
+{/*------------------- ---------------------------------- */}
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart">

@@ -7,9 +7,7 @@ import { useAuth } from "../../context/auth";
 import { NavLink} from "react-router-dom";
 import { CiFaceSmile } from "react-icons/ci";
 import Lottie from "lottie-react";
- import ContactAnimation from "../../assets/JSON/contactus.json";
-
-// import ContactAnimation from "/contactus.json";
+import ContactAnimation from "../../assets/JSON/contactus.json";
 
 
 const Login = () => {
@@ -25,16 +23,7 @@ const Login = () => {
     console.log(email, password);
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Login`,
-        // {email: this.state.email, password: password} 
-        { email, password }
-      );
-
-      // let data = JSON.stringify({
-      //   email: this.state.email,
-      //   password: password
-      // });
-      // const res = axios.post(data,{headers:{"Content-Type" : "application/json"}});
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Login`,{ email, password });
 
       if (res && res.data.success) {
         toast.success(res.data.message);
@@ -43,25 +32,15 @@ const Login = () => {
           user: res.data.user,
           token: res.data.token
         });
-
-        if (res && res.data.success) {
-          toast.success(res.data.message);
-          setAuth({
-            ...auth,
-            user: res.data.user,
-            token: res.data.token,
-          });
+          //save in the local storage
           localStorage.setItem('auth', JSON.stringify(res.data));
           navigate(location.state || "/");
-        } else {
+        } 
+        else {
           toast.error(res.data.message);
         }
-
-        navigate('/');
-      } else {
-        toast.error(res.data.message);
-      }
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error during registration:', error);
       toast.error('An error occurred during registration.');
     }
@@ -79,7 +58,6 @@ const Login = () => {
 
                   <div className="col-md-6 col-lg-5 d-none d-md-block mt-5">
                     <Lottie animationData={ContactAnimation} />
-
                   </div>
 
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
@@ -127,14 +105,14 @@ const Login = () => {
                           <button className="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                         </div>
 
-                        <button className="btn btn-secondary bg-primary mb-2" type="button" onClick={() => { navigate('/forgot-password') }}>
+                        <button className="btn btn-secondary bg-primary mb-2" type="button"
+                         onClick={() => { navigate('/forgot-password') }}>
                           Forgot password?
                         </button>
 
                         <p className="mb-4 pb-lg-2" style={{ color: "#393f81" }}>
                           Don't have an account?{" "}
                           <NavLink to="/register" style={{ color: "#393f81" }} >Register</NavLink>
-                          {/* <a href="#!" style={{ color: "#393f81" }}>Register here</a> */}
                         </p>
                         <a href="#!" className="small text-muted">Terms of use.</a>
                         <NavLink to="/Policy" className="small text-muted">Privacy policy</NavLink>

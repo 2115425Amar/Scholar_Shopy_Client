@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout/Layout'; // Import your Layout component
 import Lottie from "lottie-react";
 import ContactAnimation from "../assets/JSON/about.json"
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -13,7 +14,7 @@ const About = () => {
         <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
           <div className="col-12 col-lg-6 col-xl-5">
            
-            <Lottie animationData={ContactAnimation} />
+          <Lottie animationData={ContactAnimation} />
           </div>
           <div className="col-12 col-lg-6 col-xl-7">
             <div className="row justify-content-xl-center">
@@ -71,6 +72,10 @@ const About = () => {
                     </div>
                   </div>
                 </div>
+              
+               
+                <Link to="/home"> <button className='btn btn-success'>Go To Home Page</button></Link>
+
               </div>
             </div>
           </div>

@@ -24,6 +24,7 @@ const AuthProvider = ({ children }) => {
     }
     //eslint-disable-next-line
   }, []);
+
   return (
     <AuthContext.Provider value={[auth, setAuth]}>
       {children}
@@ -31,7 +32,8 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-// custom hook
+// custom hook  -> now we can use this useAuth in any component
 const useAuth = () => useContext(AuthContext);
+
 
 export { useAuth, AuthProvider };
