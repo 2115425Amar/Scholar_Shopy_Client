@@ -4,6 +4,7 @@ const CategoryForm = ({ handleSubmit, value, setValue }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        
         <div className="mb-3">
           <input
             type="text"
