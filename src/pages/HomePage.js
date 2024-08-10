@@ -8,7 +8,7 @@ import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Spinner2 from "../components/spinner2";
 // import "../styles/HomePage.css"
-// import { px } from "framer-motion";
+
 const HomePage = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -20,8 +20,9 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [cart, setCart] = useCart();
   const [loading2, setLoading2] =useState(false);
+  const citrus = categories.slice(1, 6);
 
-  //get all cat
+  //get all category
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
@@ -43,10 +44,10 @@ const HomePage = () => {
     try {
       setLoading2(true);
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`);
-      setLoading2(false);
       setProducts(data.products);
+      setLoading2(false);
     } catch (error) {
-      setLoading(false);
+       setLoading2(false);
       console.log(error);
     }
   };
@@ -64,7 +65,7 @@ const HomePage = () => {
   useEffect(() => {
     if (page === 1) return;
     loadMore();
-  //load more
+    // eslint-disable-next-line
   }, [page]);
 
   const loadMore = async () => {
@@ -79,7 +80,7 @@ const HomePage = () => {
     }
   };
 
-  // filter by cat
+  // filter by category
   const handleFilter = (value, id) => {
     let all = [...checked];
     if (value) {
@@ -89,64 +90,66 @@ const HomePage = () => {
     }
     setChecked(all);
   };
+
   useEffect(() => {
     if (!checked.length || !radio.length) getAllProducts();
+    // eslint-disable-next-line
   }, [checked.length, radio.length]);
+
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+    // eslint-disable-next-line
   }, [checked, radio]);
+
 
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
-        checked,
-        radio,
-      });
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {checked,radio,});
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
     }
   };
+
   return (
     <Layout title={"ALl Products - Best offers "}>
+
       <div className="container-fluid row mt-3">
+
         <div className="col-md-2">
-          <h4 className="text-center">Filter By Category</h4>
+          <h5 className="text-center">Filter By Category</h5>
           <div className="d-flex flex-column">
-            {categories?.map((c) => (
-              <Checkbox
-                key={c._id}
-                onChange={(e) => handleFilter(e.target.checked, c._id)}
-              >
-                {c.name}
-              </Checkbox>
-            ))}
+            {
+            citrus?.map((c) => (
+              <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}> {c.name} </Checkbox>
+            ))
+            }
           </div>
 
           {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
+          <h5 className="text-center mt-2">Filter By Price</h5>
           <div className="d-flex flex-column">
-            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
+          {/* Radio fron ant design */}
+            <Radio.Group onChange={(e) => setRadio(e.target.value)}> 
+              {
+              Prices?.map((p) => (
                 <div key={p._id}>
                   <Radio value={p.array}>{p.name}</Radio>
                 </div>
-              ))}
+              ))
+              }
             </Radio.Group>
+
           </div>
-          <div className="d-flex flex-column ">
-            <button
-              className="btn btn-danger"
-              onClick={() => window.location.reload()}
-            >
-              RESET FILTERS
-            </button>
+          {/* reset button */}
+          <div className="d-flex flex-column col-md-8 col-sm-4 mt-2">
+            <button className="btn btn-secondary btn-sm" onClick={() => window.location.reload()}> RESET FILTERS </button>
           </div>
         </div>
 
-        {/* ----------------------------------------------------------------- */}
+        {/* -----------------------------------------------------Products------------------------------------------------------------- */}
         <div className="col-md-10">
           <h1 className="text-center">All Products</h1>
 {/* ---------------------------------------------------------------------------------------- */}
@@ -157,7 +160,8 @@ const HomePage = () => {
             products.length > 0 ?
             (
               <div className="d-flex flex-wrap">
-              {products?.map((p) => (
+              {
+              products?.map((p) => (
                 <div className="card m-2" key={p._id} style={{ width: "18rem" }}>
                   <div>
                   <img
@@ -167,11 +171,10 @@ const HomePage = () => {
                     width="200" height="250"
                   />
                   </div>
+
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">
-                      {p.description.substring(0, 30)}...
-                    </p>
+                    <p className="card-text">{p.description.substring(0, 30)}...</p>
                     <p className="card-text">  ₹ {p.price}</p>
                     <button
                       className="btn btn-primary ms-1"
@@ -179,6 +182,7 @@ const HomePage = () => {
                     >
                       More Details
                     </button>
+
                     <button
                       className="btn btn-secondary ms-1"
                       onClick={() => {
@@ -190,52 +194,23 @@ const HomePage = () => {
                     >
                       ADD TO CART
                     </button>
+
                   </div>
                 </div>
-              ))}
+              ))
+              }
             </div>
             ) : <div className="flex justify-center items-center">
             <p>No Data Found...</p>
             </div>
           }
          </div>
-{/* ----------------------------------------------------------------------- */}
-{/* <div className="d-flex flex-wrap">
-{products?.map((p) => (
-  <div className="product-card">
+{/* {/* -------------------------------------------------------- */}
 
-    <div className="product-card__image ">
-      <img   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
-    </div>
-
-    <div className="product-card__info">
-      <h2 className="product-card__title">{p.name}</h2>
-      <p className="product-card__description"> {p.description.substring(0, 30)}...</p>
-      <div className="product-card__price-row">
-        <span className="product-card__price">₹ {p.price}</span>
-        <button className="product-card__btn"
-        onClick={() => {
-          setCart([...cart, p]);
-          localStorage.setItem("cart", JSON.stringify([...cart, p])
-          );
-          toast.success("Item Added to cart");
-        }}
-        >
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  </div>
-))}
-</div> */}
-{/* --------------------------------------------------------------------------------- */}
-
-          {/* ----------------------------------------------- */}
 
           <div className="m-2 p-3">
             {products && products.length < total && (
-              <button
-                className="btn btn-warning"
+              <button className="btn btn-warning"
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);
@@ -245,6 +220,7 @@ const HomePage = () => {
               </button>
             )}
           </div>
+
         </div>
       </div>
     </Layout>
