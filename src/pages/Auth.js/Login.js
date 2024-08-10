@@ -34,7 +34,7 @@ const Login = () => {
         });
           //save in the local storage
           localStorage.setItem('auth', JSON.stringify(res.data));
-          navigate(location.state || "/");
+          navigate(location.state || "/home");
         } 
         else {
           toast.error(res.data.message);

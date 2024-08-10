@@ -30,7 +30,7 @@ const UpdateProduct = () => {
         setPrice(data.product.price);
         setQuantity(data.product.quantity);
         setShipping(data.product.shipping);
-        setCategory(data.product.category._id);
+        setCategory(data.product.category);
     }catch(error){
         console.log(error);
     }
@@ -82,6 +82,23 @@ const UpdateProduct = () => {
     } catch (error) {
       console.log(error);
       toast.error("something went wrong");
+    }
+  };
+
+  
+  //update product function
+  const handleDelete = async () => {
+    // e.preventDefault();
+    try {
+      let answer = window.prompt('Are You Sure want to delete this product');
+      if(!answer) return;
+       // eslint-disable-next-line
+      const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}/`);
+      toast.success('Product Deleted Successfully');
+      navigate("/dashboard/admin/products");
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
     }
   };
 
@@ -206,6 +223,9 @@ const UpdateProduct = () => {
 
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleUpdate}> UPDATE PRODUCT </button>
+              </div>
+              <div className="mb-3">
+                <button className="btn btn-danger" onClick={handleDelete}> DELETE PRODUCT </button>
               </div>
 
             </div>
