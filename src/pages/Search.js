@@ -1,8 +1,10 @@
-import { Layout } from 'antd'
 import React from 'react'
 import {useSearch} from '../context/search';
+import Layout from "./../components/Layout/Layout";
 const Search = () => {
+  // eslint-disable-next-line
     const [values,setValues]=useSearch();
+
   return (
     <Layout title='Search results'>
       <div className="container">
@@ -17,6 +19,7 @@ const Search = () => {
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
+                  width="200" height="250"
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
@@ -24,6 +27,7 @@ const Search = () => {
                     {p.description.substring(0, 30)}...
                   </p>
                   <p className="card-text"> $ {p.price}</p>
+
                   <button class="btn btn-primary ms-1">More Details</button>
                   <button class="btn btn-secondary ms-1">ADD TO CART</button>
                 </div>

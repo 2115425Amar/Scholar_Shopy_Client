@@ -23,12 +23,14 @@ import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
 import CartPage from './pages/CartPage';
 import UpdateProduct from './pages/Admin/UpdateProduct';
+import Search from './pages/Search';
 
 function App() {
   return (
     <>
     <Routes>
-    <Route path='/' element={<About/>}/>
+      <Route path='/' element={<About/>}/>
+      <Route path='/search' element={<Search/>}/>
       <Route path='/home' element={<HomePage/>}/>
       <Route path='/product/:slug' element={<ProductDetails/>}/>
       <Route path='categories' element={<Categories/>}/>
@@ -43,6 +45,7 @@ function App() {
       <Route path='/Login' element={<Login/>}/>
       <Route path='/forgot-password' element={<ForgotPassword/>}/>
       {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
+      {/* <Route path='/search' element={<Search/>}/> */}
 
 
 {/* //pehle protected route check hoga that is login h ya nhithen entry milegi */}

@@ -39,18 +39,24 @@ const Header = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+            {/* logo */}
             <Link to="/" className="navbar-brand">
               Schola₹Shopy
             </Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
 
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+
+              <SearchInput />
+               
+               {/* home */}
               <li className="nav-item">
                 <NavLink to="/home" className="nav-link ">
                   Home
                 </NavLink>
               </li>
 
+              {/* categories */}
               <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
@@ -115,6 +121,7 @@ const Header = () => {
                 </>
               )}
 {/*-------------------------------------------------------------------------- */}
+               {/* cart-button */}
               <li className="nav-item">
                 <Badge count={cart?.length} showZero>
                   <NavLink to="/cart">
