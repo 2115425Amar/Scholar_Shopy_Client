@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { useCart } from "../context/cart";
+
 const CategoryProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState([]);
+  const [cart, setCart] = useCart();
 
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
+    // eslint-disable-next-line
   }, [params?.slug]);
+
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/product-category/${params.slug}`);
@@ -29,7 +35,8 @@ const CategoryProduct = () => {
         <div className="row">
           <div className="col-md-9 offset-1">
             <div className="d-flex flex-wrap">
-              {products?.map((p) => (
+              {
+              products?.map((p) => (
                 <div
                   className="card m-2"
                   style={{ width: "18rem" }}
@@ -48,10 +55,18 @@ const CategoryProduct = () => {
                     >
                       More Details
                     </button>
-                    <button className="btn btn-secondary ms-1">ADD TO CART</button>
+                    <button className="btn btn-secondary ms-1"
+                     onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem("cart", JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                    >ADD TO CART</button>
                   </div>
                 </div>
-              ))}
+              ))
+              }
             </div>
             {/* <div className="m-2 p-3">
             {products && products.length < total && (

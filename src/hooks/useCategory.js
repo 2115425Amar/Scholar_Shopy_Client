@@ -20,3 +20,5 @@ export default function useCategory() {
 
   return categories;
 }
+
+//this will be import in the header

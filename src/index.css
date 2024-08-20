@@ -4,16 +4,24 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+   background-image:  url("./assets/img/nice-blue-white-background-backdrop-purpose.jpg")  ;
+   background-repeat: no-repeat;
+   background-size: 1512px 660px;
+  
+  /* background-size: cover; Resize the background image to cover the entire container */
+}
 /* font-family: 'Poppins', sans-serif; */
 /* font-family: 'Playfair Display', serif; */
 .navbar{
+  /* background-color: blue; */
   font-family: 'Poppins', sans-serif;
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
   box-shadow: 0 8px 6px -6px gray;
   border-bottom: solid gray !important;
+  
 }
 .navbar-brand{
   font-weight: 700;

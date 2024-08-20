@@ -19,8 +19,10 @@ const Search = () => {
             <h6>{values?.results.length < 1? 'No Products Found' :  `Found ${values?.results.length}`}</h6>
 
             <div className="d-flex flex-wrap mt-4">
-            {values.results.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }}>
+
+            {
+            values.results.map((p) => (
+              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
@@ -37,9 +39,9 @@ const Search = () => {
                   <button
                   className="btn btn-primary ms-1"
                   onClick={() => navigate(`/product/${p.slug}`)}
-                   class="btn btn-primary ms-1">More Details</button>
+                  >More Details</button>
 
-                  <button class="btn btn-secondary ms-1"
+                  <button className="btn btn-secondary ms-1"
                   onClick={() => {
                     setCart([...cart, p]);
                     localStorage.setItem("cart", JSON.stringify([...cart, p])
@@ -49,7 +51,9 @@ const Search = () => {
                   >ADD TO CART</button>
                 </div>
               </div>
-            ))}
+            ))
+            }
+
           </div>
         </div>
       </div>
