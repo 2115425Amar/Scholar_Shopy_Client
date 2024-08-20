@@ -50,7 +50,7 @@ const Register = () => {
   return (
 
     <Layout>
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-91" style={{ backgroundColor: "#eee" }}>
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-10">
@@ -172,7 +172,7 @@ const Register = () => {
                         </div>
                       </form>
                     </div>
-                    <div className="col-md-10  col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
+                    <div className="col-md-10 col-sm-2 col-lg-6 col-xl-5 d-flex align-items-center order-1 order-lg-2">
                       <Lottie animationData={ContactAnimation} />
                     </div>
                   </div>
