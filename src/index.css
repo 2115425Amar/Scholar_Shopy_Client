@@ -29,22 +29,7 @@ body{
   letter-spacing: 3px;
 }
 
-.footer{
-    color: #fff;
-    padding: 25px;
-    background: #000000;
-    background: linear-gradient(to right, #434343, #000000);
-}
 
-.footer a{
-    text-decoration: none;
-    color: #fff;
-    padding: 10px;
-}
-.footer a:hover{
-    color: #ffefba;
-    border-bottom: 1px solid #ffefba;
-}
 
 
 .pnf {
@@ -75,8 +60,6 @@ body{
   margin-top: 20px; /* Example margin */
 }
 
-
-
   .register{
     display: flex;
     align-items: center;
@@ -90,4 +73,42 @@ body{
 
 
 
+  .footer{
+    color: #fff;
+    padding: 1px;
+    background: #000000;
+    background: linear-gradient(to right, #434343, #000000);
+}
 
+.footer a{
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+.footer a:hover{
+    color: #ffefba;
+    border-bottom: 1px solid #ffefba;
+}
+
+
+.footerEnd img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+}
+.footerEnd{
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: white;
+  border-top: 1px solid grey;
+  padding: 1rem;
+}
+.footerEnd svg{
+  margin: 1rem;
+}

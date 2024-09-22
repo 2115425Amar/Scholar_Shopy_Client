@@ -18,11 +18,11 @@ const About = () => {
             <div className="row justify-content-xl-center">
               <div className="col-12 col-xl-11">
                 <h2 className="mb-3">Who Are We?</h2>
-                <p className="lead fs-4 text-secondary mb-3">
+                <p className="lead fs-4 text-secondary mb-4">
                 The platform will feature a user-friendly interface, allowing students to easily browse, list, and purchase second-hand items. 
                 </p>
                 <p className="mb-5">
-                  We created a second-hand buy & sell online platform for college students. which ultimately helps them effectively use their resources, save cost and time. Also, for solving the problem of trust and security for the students this platform is available for college students only so that buyer and seller can contact each other and get their needs fulfilled.
+                  Created a second-hand buy & sell online platform for college students. which ultimately helps them effectively use their resources, save cost and time. Also, for solving the problem of trust and security for the students this platform is available for college students only so that buyer and seller can contact each other and get their needs fulfilled.
                 </p>
                 <div className="row gy-4 gy-md-0 gx-xxl-5">
                   <div className="col-12 col-md-6">
