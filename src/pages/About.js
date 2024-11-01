@@ -17,7 +17,7 @@ const About = () => {
             </div>
             <div className="col-12 col-lg-6">
               <h2 className="mb-4 text-primary font-serif">What is Schola₹Shopy?</h2>
-              <p className="lead fs-5 text-secondary mb-4">
+              <p className="lead fs-10 text-secondary mb-4">
                 The platform features a user-friendly interface, allowing students to easily browse, list, and purchase second-hand items.
               </p>
               <p className="mb-5 text-muted" style={{ fontSize: '1.1rem' }}>
@@ -30,8 +30,8 @@ const About = () => {
                       <Lottie animationData={RRR} aria-label="Circular economy animation" />
                     </div>
                     <div>
-                      <h3 className="h5 mb-2">Supporting a Circular Economy</h3>
-                      <p className="text-secondary mb-0">Reduces waste, benefiting both the environment and student budgets.</p>
+                      <h3 className="h5 mt-4">Supporting a Circular Economy</h3>
+                      {/* <p className="text-secondary mb-0">Reduces waste, benefiting both the environment and student budgets.</p> */}
                     </div>
                   </div>
                 </div>
@@ -41,8 +41,8 @@ const About = () => {
                       <Lottie animationData={Money} aria-label="Money-saving animation" />
                     </div>
                     <div>
-                      <h3 className="h5 mb-2">Saving Money for Students</h3>
-                      <p className="text-secondary mb-0">Students can save money by providing a cost-effective alternative to buying new items.</p>
+                      <h3 className="h5 mt-2">Saving Money for Students</h3>
+                      {/* <p className="text-secondary mb-0">Students can save money by providing a cost-effective alternative to buying new items.</p> */}
                     </div>
                   </div>
                 </div>
