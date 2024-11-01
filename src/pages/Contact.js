@@ -1,84 +1,60 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout'; // Import your Layout component
+import Layout from '../components/Layout/Layout';
 import Lottie from "lottie-react";
-import Animation from "../assets/JSON/contact.json"
-
+import Animation from "../assets/JSON/cont.json";
 
 const Contact = () => {
   return (
     <Layout>
-    
-    <section className="py-3 py-md-5">
-      <div className="container">
-        <div className="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-          <div className="col-12 col-lg-6 col-xl-5">
-           
-            <Lottie animationData={Animation} />
-          </div>
+      <section className="py-4 bg-light">
+        <div className="container">
+        {/* <h1 className="display-5 fw-bold">Get in Touch</h1> */}
+          {/* <div className="text-center mb-5">
+            <h1 className="display-5 fw-bold">Get in Touch</h1>
+            <p className="text-secondary fs-5">
+              I’d love to hear from you! Whether you have a question, want to connect, or need admin access, feel free to reach out.
+            </p>
+          </div> */}
 
-          <div className="col-12 col-lg-6 col-xl-7">
-            <div className="row justify-content-xl-center">
-              <div className="col-12 col-xl-11">
-                <h2 className="mb-3">Contact Me</h2>
-                {/* <p className="lead fs-4 text-secondary mb-3">
-                The platform will feature a user-friendly interface, allowing users to easily browse, list, and purchase second-hand items. 
-                </p>
-                <p className="mb-5">
-                  we created a second-hand buy & sell online platform for college students. which ultimately helps them effectively use their resources, save cost and time. Also, for solving the problem of trust and security for the students this platform is available for college students only so that buyer and seller can contact each other and get their needs fulfilled.
-                </p> */}
-                <div className="row gy-4 gy-md-0 gx-xxl-5">
-                  <div className="col-12 col-md-6">
-                    <div className="d-flex">
-                      <div className="me-4 text-primary">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="32" 
-                          height="32" 
-                          fill="currentColor" 
-                          className="bi bi-gear-fill" 
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h2 className="h4 mb-3">+91-8601082965</h2>
-                         {/* <h2 className="h4 mb-3">+91-8601082965</h2> */}
-                        {/* <p className="text-secondary mb-0">
-                        Reduces waste, benefiting both the environment and student budgets
-                        </p> */}
-                      </div>
+          <div className="row align-items-center gy-5">
+            {/* Lottie Animation */}
+            <div className="col-lg-6">
+              <Lottie animationData={Animation} className="img-fluid" />
+            </div>
+
+            {/* Contact Info & Forms */}
+            <div className="col-lg-6">
+              <div className="row gy-4">
+
+                {/* Admin Access Form */}
+                <div className="mt-5">
+                  {/* <h4 className="fw-bold">Request Admin Access</h4> */}
+                  <p className="text-secondary">If you need admin privileges, please fill out the form below with the necessary details.</p>
+                  <form action="/request-admin-access" method="POST">
+                    <div className="mb-4">
+                      {/* <label htmlFor="adminName" className="form-label">Name</label> */}
+                      <input type="text" id="adminName" className="form-control" placeholder="Your Name" required />
                     </div>
-                  </div>
-                  <div className="col-12 col-md-6">
-                    <div className="d-flex">
-                      <div className="me-4 text-primary">
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="32" 
-                          height="32" 
-                          fill="currentColor" 
-                          className="bi bi-fire" 
-                          viewBox="0 0 16 16"
-                        >
-                          <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h2 className="h4 mb-3">amar8601082@gmail.com</h2>
-                        {/* <p className="text-secondary mb-0">
-                        Students can save money by providing a cost-effective alternative to buying new items
-                        </p> */}
-                      </div>
+                    <div className="mb-4">
+                      {/* <label htmlFor="adminEmail" className="form-label">Email</label> */}
+                      <input type="email" id="adminEmail" className="form-control" placeholder="Your Email" required />
                     </div>
-                  </div>
+                    <div className="mb-4">
+                      {/* <label htmlFor="role" className="form-label">Role</label> */}
+                      <input type="text" id="role" className="form-control" placeholder="Your Role or Affiliation" required />
+                    </div>
+                    <div className="mb-4">
+                      {/* <label htmlFor="reason" className="form-label">Reason for Access</label> */}
+                      <textarea id="reason" className="form-control" rows="4" placeholder="Describe why you need admin access" required></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-success btn-md">Request Admin Access</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </Layout>
   );
 };
