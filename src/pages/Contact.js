@@ -1,53 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/Layout/Layout';
-import Lottie from "lottie-react";
-import Animation from "../assets/JSON/cont.json";
+import axios from 'axios';
 
 const Contact = () => {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    role: '',
+    reason: ''
+  });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      await axios.post('/api/v1/email/request-admin-access', formData);
+      setSubmitted(true);
+    } catch (error) {
+      console.error('Error sending request', error);
+      setError('There was an issue submitting your request. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <Layout>
       <section className="py-4 bg-light">
         <div className="container">
-        {/* <h1 className="display-5 fw-bold">Get in Touch</h1> */}
-          {/* <div className="text-center mb-5">
-            <h1 className="display-5 fw-bold">Get in Touch</h1>
-            <p className="text-secondary fs-5">
-              I’d love to hear from you! Whether you have a question, want to connect, or need admin access, feel free to reach out.
-            </p>
-          </div> */}
-
           <div className="row align-items-center gy-5">
-            {/* Lottie Animation */}
             <div className="col-lg-6">
-              <Lottie animationData={Animation} className="img-fluid" />
+              {/* Optional Lottie animation here */}
             </div>
-
-            {/* Contact Info & Forms */}
             <div className="col-lg-6">
               <div className="row gy-4">
-
-                {/* Admin Access Form */}
                 <div className="mt-5">
-                  {/* <h4 className="fw-bold">Request Admin Access</h4> */}
-                  <p className="text-secondary">If you need admin privileges, please fill out the form below with the necessary details.</p>
-                  <form action="/request-admin-access" method="POST">
+                  <p className="text-secondary">
+                    If you need admin privileges, please fill out the form below with the necessary details.
+                  </p>
+                  <form onSubmit={handleSubmit}>
                     <div className="mb-4">
-                      {/* <label htmlFor="adminName" className="form-label">Name</label> */}
-                      <input type="text" id="adminName" className="form-control" placeholder="Your Name" required />
+                      <input
+                        type="text"
+                        id="name"
+                        className="form-control"
+                        placeholder="Your Name"
+                        required
+                        value={formData.name}
+                        onChange={handleChange}
+                      />
                     </div>
                     <div className="mb-4">
-                      {/* <label htmlFor="adminEmail" className="form-label">Email</label> */}
-                      <input type="email" id="adminEmail" className="form-control" placeholder="Your Email" required />
+                      <input
+                        type="email"
+                        id="email"
+                        className="form-control"
+                        placeholder="Your Email"
+                        required
+                        value={formData.email}
+                        onChange={handleChange}
+                      />
                     </div>
                     <div className="mb-4">
-                      {/* <label htmlFor="role" className="form-label">Role</label> */}
-                      <input type="text" id="role" className="form-control" placeholder="Your Role or Affiliation" required />
+                      <input
+                        type="text"
+                        id="role"
+                        className="form-control"
+                        placeholder="Your Role or Affiliation"
+                        required
+                        value={formData.role}
+                        onChange={handleChange}
+                      />
                     </div>
                     <div className="mb-4">
-                      {/* <label htmlFor="reason" className="form-label">Reason for Access</label> */}
-                      <textarea id="reason" className="form-control" rows="4" placeholder="Describe why you need admin access" required></textarea>
+                      <textarea
+                        id="reason"
+                        className="form-control"
+                        rows="4"
+                        placeholder="Describe why you need admin access"
+                        required
+                        value={formData.reason}
+                        onChange={handleChange}
+                      ></textarea>
                     </div>
-                    <button type="submit" className="btn btn-success btn-md">Request Admin Access</button>
+                    <button type="submit" className="btn btn-success btn-md" disabled={loading}>
+                      {loading ? 'Submitting...' : 'Request Admin Access'}
+                    </button>
+                    {submitted && (
+                      <p className="mt-3 text-success">Your request has been submitted successfully!</p>
+                    )}
+                    {error && (
+                      <p className="mt-3 text-danger">{error}</p>
+                    )}
                   </form>
                 </div>
               </div>
