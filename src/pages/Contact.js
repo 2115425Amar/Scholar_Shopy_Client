@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Layout from '../components/Layout/Layout';
 import axios from 'axios';
+import Lottie from "lottie-react";
+import cont from '../assets/JSON/cont.json';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -40,6 +42,7 @@ const Contact = () => {
           <div className="row align-items-center gy-5">
             <div className="col-lg-6">
               {/* Optional Lottie animation here */}
+              <Lottie animationData={cont} />
             </div>
             <div className="col-lg-6">
               <div className="row gy-4">
