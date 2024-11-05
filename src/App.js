@@ -24,6 +24,7 @@ import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import UpdateProduct from "./pages/Admin/UpdateProduct";
 import Search from "./pages/Search";
+import Carausal from "./pages/Carausal";
 
 function App() {
   return (
@@ -62,6 +63,8 @@ function App() {
           <Route path="admin/products" element={<Products />} />
           <Route path="admin/users" element={<Users />} />
         </Route>
+
+        <Route path="/test" element={<Carausal />} />
       </Routes>
     </>
   );

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Checkbox, Radio } from "antd";
+import {  Checkbox, Radio } from "antd";
+import Carousel from "./Carausal";
 import { Prices } from "../components/Prices";
-import { useCart } from "../context/cart";
+import { CartProvider, useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Spinner2 from "../components/spinner2";
 // import "../styles/HomePage.css"
@@ -151,7 +152,12 @@ const HomePage = () => {
 
         {/* -----------------------------------------------------Products------------------------------------------------------------- */}
         <div className="col-md-10">
-          <h1 className="text-center">All Products</h1>
+          <div>
+            {/* <Carousel/> */}
+            <Carousel/>
+          </div>
+         
+          {/* <h1 className="text-center">All Products</h1> */}
 {/* ---------------------------------------------------------------------------------------- */}
          <div>
           {

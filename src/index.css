@@ -5,9 +5,9 @@
     box-sizing: border-box;
 }
 body{
-   background-image:  url("./assets/img/nice-blue-white-background-backdrop-purpose.jpg")  ;
+   /* background-image:  url("./assets/img/nice-blue-white-background-backdrop-purpose.jpg")  ;
    background-repeat: no-repeat;
-   background-size: 1512px 660px;
+   background-size: 1512px 660px; */
   
   /* background-size: cover; Resize the background image to cover the entire container */
 }
