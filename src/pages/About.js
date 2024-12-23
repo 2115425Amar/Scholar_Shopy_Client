@@ -16,7 +16,7 @@ const About = () => {
               <Lottie animationData={ContactAnimation} aria-label="Contact animation" />
             </div>
             <div className="col-12 col-lg-6">
-              <h2 className="mb-4 text-primary font-serif">What is Schola₹Shopy?</h2>
+              <h1 className="mb-4 text-primary font-serif">What is Schola₹Shopy?</h1>
               <p className="lead fs-10 text-secondary mb-4">
                 The platform features a user-friendly interface, allowing students to easily browse, list, and purchase second-hand items.
               </p>

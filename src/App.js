@@ -46,7 +46,6 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         {/* <Route path='/dashboard' element={<Dashboard/>}/> */}
-        {/* <Route path='/search' element={<Search/>}/> */}
 
         {/* //pehle protected route check hoga that is login h ya nhithen entry milegi */}
         <Route path="/dashboard" element={<PrivateRoute />}>

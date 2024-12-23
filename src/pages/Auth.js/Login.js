@@ -62,7 +62,7 @@ const Login = () => {
 
                   <div className="col-md-6 col-lg-7 d-flex align-items-center">
                     <div className="card-body p-4 p-lg-5 text-black">
-
+{/* ---------------------------------------------------------------------------------------------------------------- */}
                       <form onSubmit={handleSubmit}>
                         <div className="d-flex align-items-center mb-3 pb-1">
                           <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }}/>
@@ -117,7 +117,7 @@ const Login = () => {
                         <a href="#!" className="small text-muted">Terms of use.</a>
                         <NavLink to="/Policy" className="small text-muted">Privacy policy</NavLink>
                       </form>
-
+{/* ----------------------------------------------------------------------------------------------------------- */}
                     </div>
                   </div>
                 </div>

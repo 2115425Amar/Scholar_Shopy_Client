@@ -47,6 +47,7 @@ const Register = () => {
     }
   };
 
+
   return (
 
     <Layout>
@@ -67,8 +68,8 @@ const Register = () => {
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="text"
-                              value={name}
-                              onChange={(e) => setName(e.target.value)}
+                              value={name} // input ko state ke sath bind kr diya
+                              onChange={(e) => setName(e.target.value)} //jo bhi chnge honge wo event se detect honge aur value ke through name me set ho jayenge 
                               className="form-control"
                               id="exampleInputname"
                               placeholder="Enter Your Name"
