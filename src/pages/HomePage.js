@@ -153,7 +153,6 @@ const HomePage = () => {
         {/* -----------------------------------------------------Products------------------------------------------------------------- */}
         <div className="col-md-10">
           <div>
-            {/* <Carousel/> */}
             <Carousel/>
           </div>
          
@@ -183,14 +182,14 @@ const HomePage = () => {
                     <p className="card-text">{p.description.substring(0, 30)}...</p>
                     <p className="card-text">  ₹ {p.price}</p>
                     <button
-                      className="btn btn-primary ms-1"
+                      className="btn btn-info ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       More Details
                     </button>
 
                     <button
-                      className="btn btn-secondary ms-1"
+                      className="btn btn-dark ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
                         localStorage.setItem("cart", JSON.stringify([...cart, p])

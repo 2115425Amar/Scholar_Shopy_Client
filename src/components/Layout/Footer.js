@@ -88,23 +88,25 @@ const Footer = () => {
         <div style={{ textAlign: "center", flex: "1 1 200px" }}>
           <ul style={{ listStyleType: "none", padding: 0, fontSize: "0.9rem" }}>
             
-            <li>
-              <Link to="/contact">
-                <button
-                  type="button"
-                  className="btn btn-light border border-primary"
-                >
-                  Contact Me
-                </button>
-              </Link>
-            </li>
+           
             <li>
               <Link to="/about">
                 <button
                   type="button"
-                  className="btn btn-light border border-primary"
+                  className="btn btn-dark border border-primary"
                 >
                   About Schola₹Shopy
+                </button>
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/contact">
+                <button
+                  type="button"
+                  className="btn btn-dark border border-primary"
+                >
+                  Contact Me for Admin Access
                 </button>
               </Link>
             </li>
