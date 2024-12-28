@@ -1,10 +1,10 @@
-import React from 'react';
-import Layout from '../components/Layout/Layout'; // Import your Layout component
-import Lottie from 'lottie-react';
-import ContactAnimation from '../assets/JSON/about.json';
-import Money from '../assets/JSON/money.json';
-import RRR from '../assets/JSON/rrr.json';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Layout from "../components/Layout/Layout"; // Import your Layout component
+import Lottie from "lottie-react";
+import ContactAnimation from "../assets/JSON/about.json";
+import Money from "../assets/JSON/money.json";
+import RRR from "../assets/JSON/rrr.json";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -13,21 +13,51 @@ const About = () => {
         <div className="container">
           <div className="row gy-4 align-items-center">
             <div className="col-12 col-lg-6">
-              <Lottie animationData={ContactAnimation} aria-label="Contact animation" />
+              <Lottie
+                animationData={ContactAnimation}
+                aria-label="Contact animation"
+              />
             </div>
             <div className="col-12 col-lg-6">
-              <h1 className="mb-4 text-primary font-serif">What is Schola₹Shopy?</h1>
-              <p className="lead fs-10 text-secondary mb-4">
+              <h1 className="mb-4 text-primary font-serif">
+                What is Schola₹Shopy?
+              </h1>
+              {/* <p className="lead fs-10 text-secondary mb-4">
                 The platform features a user-friendly interface, allowing students to easily browse, list, and purchase second-hand items.
-              </p>
-              <p className="mb-5 text-muted" style={{ fontSize: '1.1rem' }}>
-                I created a second-hand buy & sell online platform specifically for college students, helping them effectively utilize their resources while saving costs and time. This platform fosters trust and security among students, as it is exclusively available for college students, enabling buyers and sellers to connect and fulfill their needs.
-              </p>
+              </p> */}
+              {/* <p className="mb-5 text-muted" style={{ fontSize: '1.1rem' }}>
+                I created a second-hand buy & sell online platform specifically for college students, 
+                helping them effectively utilize their resources while saving costs and time. 
+                This platform fosters trust and security among students, as it is exclusively available for college students,
+                 enabling buyers and sellers to connect and fulfill their needs.
+              </p> */}
+              <ul className="mb-5 text-muted" style={{ fontSize: "1.3rem" }}>
+                <li>
+                  Developed a second-hand buy-and-sell online platform tailored
+                  for college students.
+                </li>
+                <li>
+                  Helps students utilize resources effectively while saving both
+                  costs and time.
+                </li>
+                <li>
+                  Ensures a safe and trusted environment as the platform is
+                  exclusively available to college students.
+                </li>
+                <li>
+                  Enables seamless connection between buyers and sellers to meet
+                  their needs efficiently.
+                </li>
+              </ul>
+
               <div className="row gy-4">
                 <div className="col-6 col-md-6">
                   <div className="d-flex align-items-start">
                     <div className="me-4 text-primary">
-                      <Lottie animationData={RRR} aria-label="Circular economy animation" />
+                      <Lottie
+                        animationData={RRR}
+                        aria-label="Circular economy animation"
+                      />
                     </div>
                     <div>
                       <h3 className="h5 mt-4">Supporting a Circular Economy</h3>
@@ -38,7 +68,10 @@ const About = () => {
                 <div className="col-6 col-md-6">
                   <div className="d-flex align-items-start">
                     <div className="me-4 text-primary">
-                      <Lottie animationData={Money} aria-label="Money-saving animation" />
+                      <Lottie
+                        animationData={Money}
+                        aria-label="Money-saving animation"
+                      />
                     </div>
                     <div>
                       <h3 className="h5 mt-2">Saving Money for Students</h3>
@@ -48,7 +81,9 @@ const About = () => {
                 </div>
               </div>
               <Link to="/home" aria-label="Go to home page">
-                <button className="btn btn-success mt-4" type="button">Go To Home Page</button>
+                <button className="btn btn-success mt-4" type="button">
+                  Go To Home Page
+                </button>
               </Link>
             </div>
           </div>
