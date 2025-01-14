@@ -15,8 +15,8 @@ const Dashboard = () => {
             <UserMenu />
           </div>
 
-          <div className="col-md-9">
-            <div className="card w-75 p-3">
+          <div className="col-md-7">
+            <div className="card w-75 p-4">
               <h3>{auth?.user?.name}</h3>
               <h3>{auth?.user?.email}</h3>
               <h3>{auth?.user?.address}</h3>

@@ -19,25 +19,29 @@ const Register = () => {
   // Form function
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, password, phone, address, answer);
+    // console.log(name, email, phone, address, answer);
 
     try {
       // Make the POST request
-      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Register`, {
-        name,
-        email,
-        password,
-        phone,
-        address,
-        answer,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/auth/Register`,
+        {
+          name,
+          email,
+          password,
+          phone,
+          address,
+          answer,
+        }
+      );
 
       // Check the response and show appropriate toast messages
       if (res && res.data.success) {
         toast.success(res.data.message);
         // Redirect to the login page after successful registration
         navigate("/login");
-      } else {
+      } 
+      else {
         toast.error(res.data.message);
       }
     } catch (error) {
@@ -47,9 +51,7 @@ const Register = () => {
     }
   };
 
-
   return (
-
     <Layout>
       <section className="vh-91" style={{ backgroundColor: "#eee" }}>
         <div className="container h-100">
@@ -69,7 +71,7 @@ const Register = () => {
                             <input
                               type="text"
                               value={name} // input ko state ke sath bind kr diya
-                              onChange={(e) => setName(e.target.value)} //jo bhi chnge honge wo event se detect honge aur value ke through name me set ho jayenge 
+                              onChange={(e) => setName(e.target.value)} //jo bhi chnge honge wo event se detect honge aur value ke through name me set ho jayenge
                               className="form-control"
                               id="exampleInputname"
                               placeholder="Enter Your Name"
@@ -106,7 +108,8 @@ const Register = () => {
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-key fa-lg me-3 fa-fw" />
+                          {/* <i className="fas fa-key fa-lg me-3 fa-fw" /> */}
+                          <i class="fa fa-mobile fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="text"
@@ -120,7 +123,7 @@ const Register = () => {
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-key fa-lg me-3 fa-fw" />
+                          <i className="fas fa-address-book fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="text"
@@ -134,7 +137,8 @@ const Register = () => {
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-key fa-lg me-3 fa-fw" />
+                          {/* <i className="fas fa-hand-o-right fa-lg me-3 fa-fw" /> */}
+                          <i class="fa fa-hand-o-right fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
                               type="text"

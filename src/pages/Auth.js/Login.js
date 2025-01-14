@@ -20,7 +20,7 @@ const Login = () => {
   // Form function
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
 
     try {
       const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/Login`,{ email, password });

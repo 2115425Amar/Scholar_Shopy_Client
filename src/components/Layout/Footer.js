@@ -87,8 +87,7 @@ const Footer = () => {
 
         <div style={{ textAlign: "center", flex: "1 1 200px" }}>
           <ul style={{ listStyleType: "none", padding: 0, fontSize: "0.9rem" }}>
-            
-           
+          
             <li>
               <Link to="/about">
                 <button

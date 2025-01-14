@@ -5,7 +5,8 @@ import axios from "axios";
 import {  Checkbox, Radio } from "antd";
 import Carousel from "./Carausal";
 import { Prices } from "../components/Prices";
-import { CartProvider, useCart } from "../context/cart";
+// import { CartProvider, useCart } from "../context/cart";
+import {  useCart } from "../context/cart";
 import toast from "react-hot-toast";
 import Spinner2 from "../components/spinner2";
 // import "../styles/HomePage.css"
