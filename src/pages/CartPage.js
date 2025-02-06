@@ -36,8 +36,7 @@ const CartPage = () => {
      // inserts new elements in their place, returning the deleted elements.
       setCart(myCart);
       localStorage.setItem("cart", JSON.stringify(myCart));
-    } 
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   };

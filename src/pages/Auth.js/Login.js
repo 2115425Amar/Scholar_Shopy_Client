@@ -13,9 +13,9 @@ import ContactAnimation from "../../assets/JSON/contactus.json";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const [auth, setAuth] = useAuth();
 
   // Form function
   const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ const Login = () => {
         toast.success(res.data.message);
         setAuth({
           ...auth,
-          user: res.data.user,
+          user:  res.data.user,
           token: res.data.token
         });
           //save in the local storage
