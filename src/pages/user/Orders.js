@@ -31,8 +31,9 @@ const Orders = () => {
           </div>
           <div className="col-md-9">
             <h1 className="text-center">All Orders</h1>
-            {orders.length > 0 ? (
-              orders.map((o, i) => (
+          {
+            orders.length > 0 ? (
+              orders.map((o, i) => (         //o->order, i->index of order array
                 <div className="border shadow" key={o._id}>
                   <table className="table">
                     <thead>
@@ -45,6 +46,7 @@ const Orders = () => {
                         <th scope="col">Quantity</th>
                       </tr>
                     </thead>
+
                     <tbody>
                       <tr>
                         <td>{i + 1}</td>
@@ -55,7 +57,9 @@ const Orders = () => {
                         <td>{o?.products?.length}</td>
                       </tr>
                     </tbody>
+
                   </table>
+
                   {/* <div className="container">
                     {o?.products?.map((p, i) => (
                       <div className="row mb-2 p-3 card flex-row" key={p._id}>
@@ -76,6 +80,7 @@ const Orders = () => {
                       </div>
                     ))}
                   </div> */}
+                   
                 </div>
               ))
             ) : (
@@ -91,7 +96,8 @@ const Orders = () => {
                   </tr>
                 </thead>
               </table>
-            )}
+            )
+          }
           </div>
         </div>
       </div>
