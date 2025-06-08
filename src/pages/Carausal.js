@@ -35,9 +35,7 @@ const Carousel = () => {
             loop
           />
         </div>
-        {/* <div className="carousel-item">
-          <img className="d-block w-100" src={banner} alt="Third slide"  style={{ height: '290px', objectFit: 'cover' }} />
-        </div> */}
+       
       </div>
       <button
         className="carousel-control-prev"

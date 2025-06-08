@@ -21,7 +21,9 @@ const AdminOrders = () => {
   const [auth, setAuth] = useAuth();
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("${process.env.REACT_APP_API}/api/v1/auth/all-orders");
+      const { data } = await axios.get(
+        "${process.env.REACT_APP_API}/api/v1/auth/all-orders"
+      );
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -34,9 +36,12 @@ const AdminOrders = () => {
 
   const handleChange = async (orderId, value) => {
     try {
-      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`, {
-        status: value,
-      });
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/order-status/${orderId}`,
+        {
+          status: value,
+        }
+      );
       getOrders();
     } catch (error) {
       console.log(error);
@@ -50,36 +55,38 @@ const AdminOrders = () => {
         </div>
         <div className="col-md-9">
           <h1 className="text-center">All Orders</h1>
-           {
-                      orders.length > 0 ? (
-                        orders.map((o, i) => (         //o->order, i->index of order array
-                          <div className="border shadow" key={o._id}>
-                            <table className="table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">Status</th>
-                                  <th scope="col">Buyer</th>
-                                  <th scope="col">Date</th>
-                                  <th scope="col">Payment</th>
-                                  <th scope="col">Quantity</th>
-                                </tr>
-                              </thead>
-          
-                              <tbody>
-                                <tr>
-                                  <td>{i + 1}</td>
-                                  <td>{o?.status}</td>
-                                  <td>{o?.buyer?.name}</td>
-                                  <td>{moment(o?.createAt).fromNow()}</td>
-                                  <td>{o?.payment.success ? "Success" : "Failed"}</td>
-                                  <td>{o?.products?.length}</td>
-                                </tr>
-                              </tbody>
-          
-                            </table>
-          
-                            {/* <div className="container">
+          {orders.length > 0 ? (
+            orders.map(
+              (
+                o,
+                i //o->order, i->index of order array
+              ) => (
+                <div className="border shadow" key={o._id}>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Buyer</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Payment</th>
+                        <th scope="col">Quantity</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                        <td>{i + 1}</td>
+                        <td>{o?.status}</td>
+                        <td>{o?.buyer?.name}</td>
+                        <td>{moment(o?.createAt).fromNow()}</td>
+                        <td>{o?.payment.success ? "Success" : "Failed"}</td>
+                        <td>{o?.products?.length}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  {/* <div className="container">
                               {o?.products?.map((p, i) => (
                                 <div className="row mb-2 p-3 card flex-row" key={p._id}>
                                   <div className="col-md-4">
@@ -99,24 +106,23 @@ const AdminOrders = () => {
                                 </div>
                               ))}
                             </div> */}
-                             
-                          </div>
-                        ))
-                      ) : (
-                        <table className="table">
-                          <thead>
-                            <tr>
-                              <th scope="col">#</th>
-                              <th scope="col">Status</th>
-                              <th scope="col">Buyer</th>
-                              <th scope="col">Date</th>
-                              <th scope="col">Payment</th>
-                              <th scope="col">Quantity</th>
-                            </tr>
-                          </thead>
-                        </table>
-                      )
-                    }
+                </div>
+              )
+            )
+          ) : (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Buyer</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Payment</th>
+                  <th scope="col">Quantity</th>
+                </tr>
+              </thead>
+            </table>
+          )}
         </div>
       </div>
     </Layout>

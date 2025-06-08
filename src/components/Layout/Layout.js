@@ -25,7 +25,7 @@ const Layout = ({ children, title, description, keywords, author }) => {
         </main>
         
         <Footer />
-        {/* <Footer2/> */}
+        
       </div>
     </HelmetProvider>
   );

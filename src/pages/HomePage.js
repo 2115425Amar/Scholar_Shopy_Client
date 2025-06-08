@@ -108,7 +108,10 @@ const HomePage = () => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {checked,radio,});
+      const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/product-filters`, {
+        checked,  // array of selected category IDs
+        radio    // selected price range
+      });
       setProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -117,10 +120,11 @@ const HomePage = () => {
 
   return (
     <Layout title={"ALl Products - Best offers "}>
-
       <div className="container-fluid row mt-3">
 
+        {/* Filter */}
         <div className="col-md-2">
+          {/* Filter By Category */}
           <h5 className="text-center">Filter By Category</h5>
           <div className="d-flex flex-column">
             {
@@ -134,6 +138,8 @@ const HomePage = () => {
           <h5 className="text-center mt-2">Filter By Price</h5>
           <div className="d-flex flex-column">
           {/* Radio fron ant design */}
+          {/* Prices is an array of predefined price ranges. */}
+          {/* When a radio button is selected, it updates the radio state. */}
             <Radio.Group onChange={(e) => setRadio(e.target.value)}> 
               {
               Prices?.map((p) => (

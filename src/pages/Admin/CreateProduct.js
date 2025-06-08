@@ -95,7 +95,7 @@ const CreateProduct = () => {
                     type="file"
                     name="photo"
                     accept="image/*"
-                    onChange={(e) => setPhoto(e.target.files[0])}//files are arrays
+                    onChange={(e) => setPhoto(e.target.files[0])} //files are arrays
                     hidden
                   />
                 </label>
@@ -105,7 +105,7 @@ const CreateProduct = () => {
                 {photo && (
                   <div className="text-center">
                     <img
-                      src={URL.createObjectURL(photo)}//URL property of browser
+                      src={URL.createObjectURL(photo)}  //URL property of browser
                       alt="product_image"
                       height={"200px"}
                       className="img img-responsive"
