@@ -197,11 +197,26 @@ const HomePage = () => {
 
                     <button
                       className="btn btn-dark ms-1"
+                      // onClick={() => {
+                      //   setCart([...cart, p]);
+                      //   localStorage.setItem("cart", JSON.stringify([...cart, p])
+                      //   );
+                      //   toast.success("Item Added to cart");
+                      // }}
+
                       onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem("cart", JSON.stringify([...cart, p])
-                        );
-                        toast.success("Item Added to cart");
+                        const existingProductIndex = cart.findIndex((item) => item._id === p._id);
+                        let updatedCart = [];
+
+                        if (existingProductIndex !== -1) {
+                          updatedCart = cart.map((item, index) =>
+                            index === existingProductIndex ? { ...item, quantity: (item.quantity || 1) + 1 }: item);
+                        } else {
+                          updatedCart = [...cart, { ...p, quantity: 1 }];
+                        }
+                        setCart(updatedCart);
+                        localStorage.setItem("cart", JSON.stringify(updatedCart));
+                        toast.success(`${p.name} added to cart`);
                       }}
                     >
                       ADD TO CART
