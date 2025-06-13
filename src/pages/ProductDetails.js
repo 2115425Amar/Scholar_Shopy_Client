@@ -70,11 +70,10 @@ const ProductDetails = () => {
           >ADD TO CART</button>
         </div>
       </div>
-
       <hr />
         {/* similar-products */}
       <div className="row container">
-        <h3>Similar Products</h3>
+        <h3 className="text-center">Similar Products</h3>
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
         )}
