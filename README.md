@@ -8,8 +8,6 @@
 ## Features
 
 
-
-
 ### User Authentication and Security
 - **JWT**: Maintains secure sessions with JSON Web Tokens.
 - **SSL/TLS Encryption**: Ensures all data exchanged between client and server is encrypted.
@@ -104,9 +102,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 Amar Gupta - [amar8601082@gmail.com](mailto:amar8601082@gmail.com)
-
-Project Link: [https://github.com/2115425Amar/Ecommerce-2-MERN-](https://github.com/2115425Amar/Ecommerce-2-MERN-.git)
-
 ---
-
-
