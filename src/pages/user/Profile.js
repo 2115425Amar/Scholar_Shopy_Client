@@ -37,9 +37,10 @@ const Profile = () => {
         toast.error(data?.error);
       } else {
         setAuth({ ...auth, user: data?.updatedUser });
+          //parse isliye kiye hain kyoki isme do object hai
+        //auth and user
         let ls = JSON.parse(localStorage.getItem("auth"));
-         //parse isliye kiye hain kyoki isme do object hai
--        //auth and user
+       
         ls.user = data.updatedUser;
         localStorage.setItem("auth", JSON.stringify(ls));
         toast.success("Profile Updated Successfully");
