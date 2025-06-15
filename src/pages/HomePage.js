@@ -227,7 +227,7 @@ const HomePage = () => {
               ))
               }
             </div>
-            ) : <div className="flex justify-center items-center">
+            ) : <div className="mt-3 flex justify-center items-center">
             <p>No Data Found...</p>
             </div>
           }

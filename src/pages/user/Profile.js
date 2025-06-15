@@ -6,44 +6,40 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 const Profile = () => {
-  //context
+  // context
   const [auth, setAuth] = useAuth();
-  //state
+
+  // state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
-  //get user data
+  // get user data
   useEffect(() => {
-    const { email, name, phone, address } = auth?.user;
-    setName(name);
-    setPhone(phone);
-    setEmail(email);
-    setAddress(address);
+    const { email, name, phone, address } = auth?.user || {};
+    setName(name || "");
+    setEmail(email || "");
+    setPhone(phone || "");
+    setAddress(address || "");
   }, [auth?.user]);
 
-  // form function
+  // form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/auth/profile`, {
-        name,
-        email,
-        password,
-        phone,
-        address,
-      });
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
+        { name, email, password, phone, address }
+      );
       if (data?.error) {
         toast.error(data?.error);
-      } 
-      else {
+      } else {
         setAuth({ ...auth, user: data?.updatedUser });
-        let ls = localStorage.getItem("auth");
-        ls = JSON.parse(ls);
-        //parse isliye kiye hain kyoki isme do object hai
-        //auth and user
+        let ls = JSON.parse(localStorage.getItem("auth"));
+         //parse isliye kiye hain kyoki isme do object hai
+-        //auth and user
         ls.user = data.updatedUser;
         localStorage.setItem("auth", JSON.stringify(ls));
         toast.success("Profile Updated Successfully");
@@ -58,67 +54,105 @@ const Profile = () => {
     <Layout title={"Your Profile"}>
       <div className="container-fluid m-3 p-3">
         <div className="row">
-
+          {/* Sidebar */}
           <div className="col-md-3">
             <UserMenu />
           </div>
 
-          <div className="col-md-4">
-            <div className="form-container ">
+          {/* Editable Profile Card */}
+          <div className="col-lg-8">
+            <form onSubmit={handleSubmit}>
+              <div className="card mb-4 shadow-sm">
+                <div className="card-body">
+                  <h4 className="mb-4">Edit Your Profile</h4>
 
-              <form onSubmit={handleSubmit}>
-                <h4 className="title">YOUR PROFILE</h4>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter Your Name"
-                    autoFocus
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter Your Email "
-                    disabled
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter Your Password"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter Your Phone"
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
-                    placeholder="Enter Your Address"
-                  />
-                </div>
+                  {/* Name */}
+                  <div className="row mb-3">
+                    <div className="col-sm-3">
+                      <label className="mb-0 fw-bold">Full Name</label>
+                    </div>
+                    <div className="col-sm-9">
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter your name"
+                      />
+                    </div>
+                  </div>
 
-                <button type="submit" className="btn btn-primary">UPDATE</button>
-              </form>
-            </div>
+                  {/* Email */}
+                  <div className="row mb-3">
+                    <div className="col-sm-3">
+                      <label className="mb-0 fw-bold">Email</label>
+                    </div>
+                    <div className="col-sm-9">
+                      <input
+                        type="email"
+                        className="form-control"
+                        value={email}
+                        disabled
+                      />
+                    </div>
+                  </div>
+
+                  {/* Password */}
+                  <div className="row mb-3">
+                    <div className="col-sm-3">
+                      <label className="mb-0 fw-bold">Password</label>
+                    </div>
+                    <div className="col-sm-9">
+                      <input
+                        type="password"
+                        className="form-control"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter new password"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="row mb-3">
+                    <div className="col-sm-3">
+                      <label className="mb-0 fw-bold">Phone</label>
+                    </div>
+                    <div className="col-sm-9">
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Enter phone number"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Address */}
+                  <div className="row mb-4">
+                    <div className="col-sm-3">
+                      <label className="mb-0 fw-bold">Address</label>
+                    </div>
+                    <div className="col-sm-9">
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        placeholder="Enter address"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="text-end">
+                    <button type="submit" className="btn btn-primary">
+                      Update Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
