@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "./../components/Layout/Layout";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import toast from "react-hot-toast";
+
 const CartPage = () => {
   const [auth] = useAuth();
   const [cart, setCart] = useCart();
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // Calculate total price
@@ -50,6 +55,48 @@ const CartPage = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
+    //handle payments
+  // const handlePayment = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const { nonce } = await instance.requestPaymentMethod();
+  //     const { data } = await axios.post("/api/v1/product/braintree/payment", {
+  //       nonce,
+  //       cart,
+  //     });
+  //     setLoading(false);
+  //     localStorage.removeItem("cart");
+  //     setCart([]);
+  //     navigate("/dashboard/user/orders");
+  //     toast.success("Payment Completed Successfully ");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
+
+  const handleStripeCheckout = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.post("http://localhost:8000/api/v1/product/payment", {
+        cart,
+      }, {
+        headers: {
+          Authorization: auth?.token,
+        }
+      });
+
+      const stripe = await loadStripe("pk_test_51RaE2W4NTa7mzuyraDxT3w3sPcvrd2OepQQIkwELHJHanAIQu1gliogdUCsLz1qH65HZtJzZGWfKN1at1r1fyXUV00sdhXei6j"); // Stripe Publishable Key 
+      await stripe.redirectToCheckout({ sessionId: data.id });
+      setLoading(false);
+    } catch (error) {
+      console.error("Stripe checkout error:", error);
+      toast.error("Payment failed");
+      setLoading(false);
+    }
+  };
+
+
   return (
     <Layout>
       <div className="container">
@@ -70,7 +117,7 @@ const CartPage = () => {
 
         {/* Cart Items and Summary */}
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-8">
             {cart?.map((p) => (
               <div key={p._id} className="row mb-2 p-3 card flex-row">
                 <div className="col-md-4">
@@ -151,8 +198,26 @@ const CartPage = () => {
                     Please Login to Checkout
                   </button>
                 )}
+
               </div>
+              
             )}
+             <div className="mt-2">
+              {!cart?.length ? (
+                ""
+              ) : (
+                <>
+                  <button
+                    className="btn btn-primary"
+                    onClick={handleStripeCheckout}
+                    disabled={loading || !auth?.user?.address}
+                  >
+                    {loading ? "Processing..." : "Proceed to Payment"}
+                  </button>
+
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
