@@ -65,7 +65,7 @@ const CartPage = () => {
   const handleStripeCheckout = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("http://localhost:8000/api/v1/product/payment", {
+      const { data } = await axios.post("http://localhost:8080/api/v1/product/payment", {
         cart,
       }, {
         headers: {
